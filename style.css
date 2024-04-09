@@ -135,6 +135,10 @@ ul,ol,menu{
 .contact:hover{
     background-color: rgb(202, 202, 202);
 }
+
+.contact.hidden{
+    display: none;
+}
 .contact{
     cursor: pointer;
 }

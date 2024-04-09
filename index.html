@@ -47,10 +47,10 @@
                     </div>
                 </div>
                 <div  class="search-bar">
-                    <input class="icon" type="text" placeholder="Cerca o inizia una nuova chat">
+                    <input class="icon" type="text" placeholder="Cerca o inizia una nuova chat" v-model="search">
                 </div>
                 <ul class="contacts">
-                    <li v-for="(contact,i) in contacts" :class="i === currentIndex ? 'active' : '' " class="contact  defact" @click="currentIndex = i">
+                    <li v-for="(contact,i) in contacts"  :class="[isVisible(contact) ? '' : 'hidden', i=== currentIndex ? 'active' : '', 'contact', 'defact',]" @click="currentIndex = i">
                         
                         <div class="contact-info  defact-content" >
                             <img class="contact-img" :src="contact.avatar" alt="">

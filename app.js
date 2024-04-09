@@ -8,6 +8,7 @@ createApp({
         message: 'Hello Vue!',
         currentIndex: 3,
         messageText: '' ,
+        search: '',
         contacts: [
           {
           name: 'Michele',
@@ -175,6 +176,11 @@ createApp({
       }
       
     },
+    watch: {
+      search(newValue){
+        console.log('new: ${newValue}')
+      }
+    },
     computed:{
       currentContact() {
         return this.contacts[this.currentIndex]
@@ -184,6 +190,9 @@ createApp({
       }
     },
     methods:{
+      isVisible(contact){
+        return contact.name.toLowerCase().includes(this.search.toLowerCase())
+      },
       sendMessage(){
         const message = {
           date: '10/01/2020 15:30:55',
