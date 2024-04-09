@@ -192,23 +192,18 @@ createApp({
       }
       console.log(message)
 
-      this.contacts[this.currentIndex].messages.push(message)
-
+      const messages = this.contacts[this.currentIndex].messages
+      messages.push(message)
       this.messageText = ''
-
-      const receMess = {
-        date: '10/01/2020 15:30:55',
-        message: 'ok ho capito',
-        status: 'received'
+      setTimeout(() => {
+        const message = {
+          date: '10/01/2020 15:51:00',
+          message: 'OK!!',
+          status: 'received'
+        }
+        messages.push(message)
+      },2000)
     }
-
-    this.contacts[this.currentIndex].messages.push(receMess)
-
-
-
-
-    
-      }
     }
   }).mount('#app')
 
