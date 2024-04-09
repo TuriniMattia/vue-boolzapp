@@ -90,6 +90,7 @@ createApp({
           message: 'Si, ma preferirei andare al cinema',
           status: 'received'
           }
+
           ],
           },
           {
@@ -194,6 +195,16 @@ createApp({
       this.contacts[this.currentIndex].messages.push(message)
 
       this.messageText = ''
+
+      const receMess = {
+        date: '10/01/2020 15:30:55',
+        message: 'ok ho capito',
+        status: 'received'
+    }
+
+    this.contacts[this.currentIndex].messages.push(receMess)
+
+
 
 
     
