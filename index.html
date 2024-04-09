@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Foglio di stile -->
+    <link rel="stylesheet" href="style.css">
+    <!-- FontAwesome -->
+    <script src="https://kit.fontawesome.com/5dd1e5b89d.js" crossorigin="anonymous"></script>
+    <!-- Font-family -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+     <link href="https://fonts.googleapis.com/css2?family=Open+Sans:ital@0;1&display=swap" rel="stylesheet">
+    <title>Boolzapp</title>
+</head>
+<body >
+    <!-- Vue -->
+    <script src="https://unpkg.com/vue@3/dist/vue.global.js"></script>
+    <div id="app">
+        <div class="app-content">
+            <header class="side-bar debug">
+                <div class="toolbar user-toolbar">
+                    <div class="contact-info" >
+                        <img class="contact-img" src="./img/avatar_io.jpg" alt="">
+                    </div>
+                    <ul class="toolbar-menu d-none d-lg-flex">
+                        <li>
+                            <i class="fa-solid fa-circle-notch"></i>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-message"></i>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </li>
+                    </ul>
+                </div>
+                <div class="notification-box defact">
+                    <div class=" defact-content" >
+                        <span class="notification-icon">
+                            <i class="fa-solid fa-bell-slash "></i>
+                        </span>
+                        <div class="notification-message">
+                            <p class="rec-not">Ricevi notifiche di nuovi messaggi</p>
+                            <p class="on-not">Attiva notifiche desktop</p>
+                        </div>
+                    </div>
+                </div>
+                <div  class="search-bar">
+                    <input class="icon" type="text" placeholder="Cerca o inizia una nuova chat">
+                </div>
+                <ul class="contacts">
+                    <li v-for="(contact,i) in contacts" :class="i === currentIndex ? 'active' : '' " class="contact  defact" @click="currentIndex = i">
+                        
+                        <div class="contact-info  defact-content" >
+                            <img class="contact-img" :src="contact.avatar" alt="">
+                            <div class="d-none d-lg-block">
+                                <h3 class="contact-name">
+                                    {{contact.name}}
+                                </h3>
+                                <p class="last-access">
+                                    Lorem, ipsum dolor sit.
+                                </p>
+                            </div>
+                           
+                        </div>
+                        <spa class="time d-none d-lg-block">
+                            16:15 
+                         </spa>  
+                    </li>
+      
+                </ul>
+            </header>
+            <main class="chat-wrapper">
+                <div class="toolbar user-toolbar">
+                    <div class="contact-info  defact-content" >
+                        <img class="contact-img" :src="currentContact.avatar" alt="">
+                        <div>
+                            <h3 class="contact-name">
+                                {{currentContact.name}}
+                            </h3>
+                            <p class="last-access">
+                                Lorem, ipsum dolor sit.
+                            </p>
+                        </div>
+                      
+                    </div> 
+                   
+                    <ul class="toolbar-menu">
+                        <li>
+                            <i class="fa-solid fa-magnifying-glass"></i>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-paperclip"></i>
+                        </li>
+                        <li>
+                            <i class="fa-solid fa-ellipsis-vertical"></i>
+                        </li>
+                    </ul>
+                </div>
+                <ul class="chat">
+                    <li v-for="currentMessage in currentChat" :class="currentMessage.status" class="message " >
+                        {{currentMessage.message}}
+                        <span class="message-time">
+                            {{currentMessage.date.slice(11,16)}}
+                        </span>
+                    </li>
+                    
+                </ul>
+                <div class="toolbar chat-toolbar">
+                    <i class="fa-regular fa-face-smile icone"></i>
+                    <input class="emoji-input" type="text" placeholder="scrivi un messaggio" v-model.trim="messageText" @keyup.enter="sendMessage">
+                    <i class="fa-solid fa-microphone icone"></i>
+                </div>
+            </main>
+
+        </div>
+    </div>
+    <!-- JavaScript -->
+    <script src="./app.js"></script>
+</body>
+</html> 
